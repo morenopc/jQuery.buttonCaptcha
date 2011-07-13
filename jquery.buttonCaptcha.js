@@ -119,12 +119,19 @@
 							.appendTo(cfg.structure.contains.zone);
 				var zone_len=12;
 				for (var x=0; x<letters.length; x++) {
-					findLetter=letters.charAt(x).toLowerCase();
-					var sprite=cfg.lettersSprite[findLetter];
-					var div=$('<div/>')
-							.attr('class','zone_letter')
-							.css('background-position',sprite+'px 0')
+				    if (letters[x]=='.'){
+				        var div=$('<div/>')
+							.attr('class','zone_dot')
 							.appendTo(cfg.structure.contains.zone);
+				    }
+				    else{
+					    findLetter=letters.charAt(x).toLowerCase();
+					    var sprite=cfg.lettersSprite[findLetter];
+					    var div=$('<div/>')
+							    .attr('class','zone_letter')
+							    .css('background-position',sprite+'px 0')
+							    .appendTo(cfg.structure.contains.zone);
+				    }
 					zone_len+=18;
 				}
 				cfg.structure.contains.zone.css('width',zone_len+'px');
